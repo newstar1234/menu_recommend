@@ -12,13 +12,15 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "menu_recommend")
-@Table(name = "menu_recommend")
-public class MenuRecommendEntity {
-
+@Entity(name = "menu")
+@Table(name = "menu")
+public class MenuEntity {
+    
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int menuId;
 
+    private String menuCategory;
+
     private String menuName;
-    
+
 }
