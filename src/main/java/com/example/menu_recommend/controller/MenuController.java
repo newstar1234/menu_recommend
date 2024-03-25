@@ -15,14 +15,15 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("api/v1/menu")
 @RequiredArgsConstructor
 public class MenuController {
-    
+
     private final MenuService menuService;
 
-    @GetMapping("/")
-    public ResponseEntity<? super GetMenuResponseDto> getMenu (
+    @GetMapping("/{menuId}")
+    public ResponseEntity<? super GetMenuResponseDto> getMenu(
+        @PathVariable("menuId") Integer menuId
     ) {
-        ResponseEntity<? super GetMenuResponseDto> response = menuService.getMenu();
+        ResponseEntity<? super GetMenuResponseDto> response = menuService.getMenu(menuId);
         return response;
     }
-
+    
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.example.menu_recommend.dto.response.ResponseDto;
 import com.example.menu_recommend.dto.response.menu.GetMenuResponseDto;
 import com.example.menu_recommend.repository.MenuRepository;
-import com.example.menu_recommend.repository.resultset.MenuResultSet;
+import com.example.menu_recommend.repository.resultSet.GetMenuResultSet;
 import com.example.menu_recommend.service.MenuService;
 
 import lombok.RequiredArgsConstructor;
@@ -14,25 +14,26 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class MenuServiceImplement implements MenuService {
-    
+
     private final MenuRepository menuRepository;
 
     @Override
-    public ResponseEntity<? super GetMenuResponseDto> getMenu() {
-    
-        MenuResultSet menuResultSet = null;
+    public ResponseEntity<? super GetMenuResponseDto> getMenu(int menuId) {
+
+        GetMenuResultSet resultSet = null;
 
         try {
-            menuResultSet = menuRepository.findRandomByMenuName();
-            if(menuResultSet == null) return GetMenuResponseDto.failed();
+
+            resultSet = menuRepository.getMenu(menuId);
+            if(resultSet == null) return GetMenuResponseDto.failed();
             
         } catch (Exception exception) {
             exception.printStackTrace();
             return ResponseDto.databaseError();
         }
 
-        return GetMenuResponseDto.success(menuResultSet);
+        return GetMenuResponseDto.success(resultSet);
 
     }
-
+    
 }

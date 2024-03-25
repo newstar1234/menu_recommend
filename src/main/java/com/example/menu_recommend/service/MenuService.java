@@ -6,6 +6,6 @@ import com.example.menu_recommend.dto.response.menu.GetMenuResponseDto;
 
 public interface MenuService {
     
-    ResponseEntity<? super GetMenuResponseDto> getMenu();
+    ResponseEntity<? super GetMenuResponseDto> getMenu(int menuId);
 
 }
