@@ -18,12 +18,11 @@ public class MenuService {
     private final MenuRepository menuRepository;
     private final UserRepository userRepository;
 
-    private static final int maxMenuId = 100;
-    private static final int minMenuId = 1;
+
 
     public List<MenuEntity> getRandomMenu() {
 
-        int randomMenuId = (int) (Math.random() * (maxMenuId - minMenuId + 1)) + minMenuId;
+        int randomMenuId = (int) (Math.random() * 10) + 1;
 
         MenuEntity menuEntity = menuRepository.findById(randomMenuId).orElse(null);
 

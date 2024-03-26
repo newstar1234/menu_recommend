@@ -11,5 +11,8 @@ import com.example.menu_recommend.entity.MenuEntity;
 public interface MenuRepository extends JpaRepository<MenuEntity, Integer> {
     
     List<MenuEntity> findByMenuCategory(String menuCategory);
+
+    MenuEntity findMaxMenuId(int menuId);
+    MenuEntity findMinMenuId(int menuId);
     
 }
