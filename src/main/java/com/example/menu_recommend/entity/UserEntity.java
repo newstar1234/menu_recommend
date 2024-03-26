@@ -12,15 +12,15 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "category")
-@Table(name = "category")
-public class CategoryEntity {
+@Entity(name = "user")
+@Table(name = "user")
+public class UserEntity {
     
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int categoryId;
+    private int userId;
 
-    private String categoryMenu;
+    private String userName;
 
-    private String categoryName;
+    private String userCategory;
 
 }

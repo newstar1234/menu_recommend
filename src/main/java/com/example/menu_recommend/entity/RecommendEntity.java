@@ -10,19 +10,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "menu")
-@Table(name = "menu")
-public class MenuEntity {
+@NoArgsConstructor
+@Entity(name = "recommend")
+@Table(name = "recommend")
+public class RecommendEntity {
     
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int menuId;
+    private int recommendId;
 
-    private String menuName;
-    
-    private String menuCategory;
+    private String recommendUserId;
 
-    private String menuPrice;
+    private String recommendMenuId;
 
 }
